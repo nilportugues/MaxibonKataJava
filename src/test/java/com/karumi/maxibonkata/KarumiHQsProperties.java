@@ -50,7 +50,7 @@ public class KarumiHQsProperties {
             @From(HungryDevelopersGenerator.class) final Developer developer) {
 
         karumiHQs.openFridge(developer);
-        Mockito.verify(chat).sendMessage(buildChatMessage(developer));
+        Mockito.verify(chat).sendMessage(buildChatMessage(developer)); //esto es validar que el mock tiene un cierto valor o se ha llamado n veces.
     }
 
     private String buildChatMessage(@From(HungryDevelopersGenerator.class) Developer developer) {
@@ -62,6 +62,6 @@ public class KarumiHQsProperties {
             @From(NotSoHungryDevelopersGenerator.class) Developer developer) {
 
         karumiHQs.openFridge(developer);
-        Mockito.verify(chat, Mockito.never()).sendMessage(null);
+        Mockito.verify(chat, Mockito.never()).sendMessage(null); //esto es validar que el mock tiene un cierto valor o se ha llamado n veces.
     }
 }
