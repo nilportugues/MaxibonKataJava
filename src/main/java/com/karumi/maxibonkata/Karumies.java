@@ -18,10 +18,9 @@ package com.karumi.maxibonkata;
 
 public class Karumies {
 
-  public static final Developer PEDRO = new Developer("Pedro", 3);
-  public static final Developer ALBERTO = new Developer("Alberto", 1);
-  public static final Developer DAVIDE = new Developer("Davide", 0);
-  public static final Developer SERGIO = new Developer("Sergio", 2);
-  public static final Developer JORGE = new Developer("Jorge", 1);
-
+    public static final Developer PEDRO = new Developer("Pedro", 3);
+    public static final Developer ALBERTO = new Developer("Alberto", 1);
+    public static final Developer DAVIDE = new Developer("Davide", 0);
+    public static final Developer SERGIO = new Developer("Sergio", 1);
+    public static final Developer JORGE = new Developer("Jorge", 2);
 }

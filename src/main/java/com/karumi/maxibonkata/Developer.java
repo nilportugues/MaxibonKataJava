@@ -16,31 +16,32 @@
 
 package com.karumi.maxibonkata;
 
-class Developer {
+public class Developer {
 
-  private final String name;
-  private final int numberOfMaxibonsToGrab;
+    private final String name;
+    private final int numberOfMaxibonsToGrab;
 
-  Developer(String name, int numberOfMaxibonsToGrab) {
-    if (numberOfMaxibonsToGrab < 0) {
-      numberOfMaxibonsToGrab = 0;
+    public Developer(String name, int numberOfMaxibonsToGrab) {
+        if (numberOfMaxibonsToGrab < 0) {
+            numberOfMaxibonsToGrab = 0;
+        }
+        this.name = name;
+        this.numberOfMaxibonsToGrab = numberOfMaxibonsToGrab;
     }
-    this.name = name;
-    this.numberOfMaxibonsToGrab = numberOfMaxibonsToGrab;
-  }
 
-  public String getName() {
-    return name;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public int getNumberOfMaxibonsToGrab() {
-    return numberOfMaxibonsToGrab;
-  }
+    public int getNumberOfMaxibonsToGrab() {
+        return numberOfMaxibonsToGrab;
+    }
 
-  @Override public String toString() {
-    return "Developer{"
-        + "name='" + name + '\''
-        + ", numberOfMaxibonsToGrab=" + numberOfMaxibonsToGrab
-        + '}';
-  }
+    @Override
+    public String toString() {
+        return "Developer{"
+                + "name='" + name + '\''
+                + ", numberOfMaxibonsToGrab=" + numberOfMaxibonsToGrab
+                + '}';
+    }
 }

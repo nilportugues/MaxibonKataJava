@@ -14,23 +14,25 @@
  * limitations under the License.
  */
 
-package com.karumi.maxibonkata;
+package com.karumi.maxibonkata.generator;
 
+import com.karumi.maxibonkata.Developer;
 import com.pholser.junit.quickcheck.generator.GenerationStatus;
 import com.pholser.junit.quickcheck.generator.Generator;
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
 
-public class KarumiesGenerator extends Generator<Developer> {
+import org.apache.commons.lang3.RandomStringUtils;
 
-  private static final Developer[] KARUMIES = new Developer[] {
-      Karumies.PEDRO, Karumies.ALBERTO, Karumies.DAVIDE, Karumies.JORGE, Karumies.SERGIO
-  };
+public class HungryDevelopersGenerator extends Generator<Developer> {
 
-  public KarumiesGenerator() {
-    super(Developer.class);
-  }
+    public HungryDevelopersGenerator() {
+        super(Developer.class);
+    }
 
-  @Override public Developer generate(SourceOfRandomness random, GenerationStatus status) {
-    return KARUMIES[random.nextInt(5)];
-  }
+    @Override
+    public Developer generate(SourceOfRandomness random, GenerationStatus status) {
+        String name = RandomStringUtils.randomAlphabetic(random.nextInt(16));
+        int numberOfMaxibons = random.nextInt(8, 10);
+        return new Developer(name, numberOfMaxibons);
+    }
 }

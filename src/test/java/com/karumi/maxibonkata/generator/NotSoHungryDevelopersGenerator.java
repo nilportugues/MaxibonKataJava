@@ -14,22 +14,25 @@
  * limitations under the License.
  */
 
-package com.karumi.maxibonkata;
+package com.karumi.maxibonkata.generator;
 
+import com.karumi.maxibonkata.Developer;
 import com.pholser.junit.quickcheck.generator.GenerationStatus;
 import com.pholser.junit.quickcheck.generator.Generator;
 import com.pholser.junit.quickcheck.random.SourceOfRandomness;
+
 import org.apache.commons.lang3.RandomStringUtils;
 
-public class DevelopersGenerator extends Generator<Developer> {
+public class NotSoHungryDevelopersGenerator extends Generator<Developer> {
 
-  public DevelopersGenerator() {
-    super(Developer.class);
-  }
+    public NotSoHungryDevelopersGenerator() {
+        super(Developer.class);
+    }
 
-  @Override public Developer generate(SourceOfRandomness random, GenerationStatus status) {
-    String name = RandomStringUtils.randomAlphabetic(random.nextInt(16));
-    int numberOfMaxibons = random.nextInt(0, Integer.MAX_VALUE);
-    return new Developer(name, numberOfMaxibons);
-  }
+    @Override
+    public Developer generate(SourceOfRandomness random, GenerationStatus status) {
+        String name = RandomStringUtils.randomAlphabetic(random.nextInt(16));
+        int numberOfMaxibons = random.nextInt(0, 7);
+        return new Developer(name, numberOfMaxibons);
+    }
 }

@@ -21,53 +21,53 @@ import java.util.List;
 
 public class KarumiHQs {
 
-  private final Chat chat;
+    private final Chat chat;
 
-  private int maxibonsLeft;
+    private int maxibonsLeft;
 
-  public KarumiHQs() {
-    this(new ConsoleChat());
-  }
-
-  public KarumiHQs(Chat chat) {
-    this.chat = chat;
-    this.maxibonsLeft = 10;
-  }
-
-  public void openFridge(Developer developer) {
-    openFridge(Collections.singletonList(developer));
-  }
-
-  public void openFridge(List<Developer> developers) {
-    for (Developer developer : developers) {
-      grabMaxibons(developer);
-      if (shouldBuyMoreMaxibons()) {
-        notifyWeShouldBuyMaxibon(developer);
-        buyMaxibons();
-      }
+    public KarumiHQs() {
+        this(new ConsoleChat());
     }
-  }
 
-  private void grabMaxibons(Developer developer) {
-    maxibonsLeft -= developer.getNumberOfMaxibonsToGrab();
-    if (maxibonsLeft < 0) {
-      maxibonsLeft = 0;
+    public KarumiHQs(Chat chat) {
+        this.chat = chat;
+        this.maxibonsLeft = 10;
     }
-  }
 
-  private boolean shouldBuyMoreMaxibons() {
-    return maxibonsLeft <= 2;
-  }
+    public void openFridge(Developer developer) {
+        openFridge(Collections.singletonList(developer));
+    }
 
-  private void notifyWeShouldBuyMaxibon(Developer developer) {
-    chat.sendMessage("Hi guys, I'm " + developer.getName() + ". We need more maxibons!");
-  }
+    public void openFridge(List<Developer> developers) {
+        for (Developer developer : developers) {
+            grabMaxibons(developer);
+            if (shouldBuyMoreMaxibons()) {
+                notifyWeShouldBuyMaxibon(developer);
+                buyMaxibons();
+            }
+        }
+    }
 
-  private void buyMaxibons() {
-    maxibonsLeft += 10;
-  }
+    private void grabMaxibons(Developer developer) {
+        maxibonsLeft -= developer.getNumberOfMaxibonsToGrab();
+        if (maxibonsLeft < 0) {
+            maxibonsLeft = 0;
+        }
+    }
 
-  public int getMaxibonsLeft() {
-    return maxibonsLeft;
-  }
+    private boolean shouldBuyMoreMaxibons() {
+        return maxibonsLeft <= 2;
+    }
+
+    private void notifyWeShouldBuyMaxibon(Developer developer) {
+        chat.sendMessage("Hi guys, I'm " + developer.getName() + ". We need more maxibons!");
+    }
+
+    private void buyMaxibons() {
+        maxibonsLeft += 10;
+    }
+
+    public int getMaxibonsLeft() {
+        return maxibonsLeft;
+    }
 }

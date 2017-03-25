@@ -18,8 +18,9 @@ package com.karumi.maxibonkata;
 
 public class ConsoleChat implements Chat {
 
-  @Override public void sendMessage(String message) {
-    System.out.println(message);
-  }
+    @Override
+    public void sendMessage(String message) {
+        System.out.println(message);
+    }
 
 }
