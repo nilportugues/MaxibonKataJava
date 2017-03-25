@@ -15,7 +15,14 @@ import static org.junit.Assert.assertTrue;
 public class DeveloperProperties {
 
     private static final String ANY_NAME = "Nil";
+
     private static final int ANY_NUMBER_OF_MAXIBONS = 1;
+
+    private static final int MAXIBON_PEDRO = 3;
+    private static final int MAXIBON_DAVIDE = 0;
+    private static final int MAXIBON_ALBERTO = 1;
+    private static final int MAXIBON_JORGE = 2;
+    private static final int MAXIBON_SERGIO = 1;
 
     @Property
     public void theNumberOfMaxibonsAssignedIsPositiveOrZero(final int number) {
@@ -33,10 +40,10 @@ public class DeveloperProperties {
 
     @Test
     public void testNumberOfMaxibonsMatchTheDocumentation() {
-        assertSame(Karumies.PEDRO.getNumberOfMaxibonsToGrab(), 3);
-        assertSame(Karumies.DAVIDE.getNumberOfMaxibonsToGrab(), 0);
-        assertSame(Karumies.ALBERTO.getNumberOfMaxibonsToGrab(), 1);
-        assertSame(Karumies.JORGE.getNumberOfMaxibonsToGrab(), 2);
-        assertSame(Karumies.SERGIO.getNumberOfMaxibonsToGrab(), 1);
+        assertSame(Karumies.PEDRO.getNumberOfMaxibonsToGrab(), MAXIBON_PEDRO);
+        assertSame(Karumies.DAVIDE.getNumberOfMaxibonsToGrab(), MAXIBON_DAVIDE);
+        assertSame(Karumies.ALBERTO.getNumberOfMaxibonsToGrab(), MAXIBON_ALBERTO);
+        assertSame(Karumies.JORGE.getNumberOfMaxibonsToGrab(), MAXIBON_JORGE);
+        assertSame(Karumies.SERGIO.getNumberOfMaxibonsToGrab(), MAXIBON_SERGIO);
     }
 }
