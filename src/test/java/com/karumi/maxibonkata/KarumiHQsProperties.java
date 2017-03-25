@@ -15,7 +15,6 @@ import org.mockito.Mockito;
 
 import java.util.List;
 
-
 @RunWith(JUnitQuickcheck.class)
 public class KarumiHQsProperties {
 
@@ -51,7 +50,6 @@ public class KarumiHQsProperties {
             @From(HungryDevelopersGenerator.class) final Developer developer) {
 
         karumiHQs.openFridge(developer);
-
         Mockito.verify(chat).sendMessage(buildChatMessage(developer));
     }
 
@@ -62,8 +60,8 @@ public class KarumiHQsProperties {
     @Property
     public void testNoChatMessageIsSendIfMaxibonAreAvailable(
             @From(NotSoHungryDevelopersGenerator.class) Developer developer) {
-        karumiHQs.openFridge(developer);
 
+        karumiHQs.openFridge(developer);
         Mockito.verify(chat, Mockito.never()).sendMessage(null);
     }
 }
